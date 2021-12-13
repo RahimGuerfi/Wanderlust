@@ -8,7 +8,6 @@ const createVenueHTML = (name, location, iconSource) => {
 };
 
 const createWeatherHTML = (currentDay) => {
-  console.log(currentDay);
   const kelvinTemp = currentDay.main.temp;
   return `<h2>${weekDays[new Date().getDay()]}</h2>
           <h2>Temperature: ${kelvinToFahrenheit(

@@ -1,3 +1,8 @@
+html,
+body {
+  box-sizing: border-box;
+}
+
 .logo {
   padding: 10px;
 }
@@ -5,7 +10,7 @@
 main {
   margin: 0px auto 50px auto;
   text-align: center;
-  background-image: url("https://content.codecademy.com/courses/intermediate-javascript-requests/wanderlust/background_photo_desktop.jpg");
+  background-image: url("background.webp");
   background-size: cover;
   text-align: center;
 }
@@ -59,6 +64,7 @@ footer {
   max-width: 900px;
   margin: auto;
   visibility: hidden;
+  padding: 0 10px;
 }
 
 .weather h2 {
@@ -71,7 +77,7 @@ footer {
 
 .weather {
   /* width: 200px; */
-  height: 260px;
+  height: 150px;
   padding: 20px;
   box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.5);
 }
@@ -112,6 +118,7 @@ footer {
 .sectiontitle {
   width: 300px;
   align-items: center;
+  margin-bottom: 15px;
 }
 
 .sectiontitle h2 {
@@ -127,47 +134,58 @@ footer {
   display: flex;
   justify-content: space-around;
   min-height: 250px;
+  column-gap: 20px;
 }
 
 #weather {
   display: flex;
   justify-content: space-around;
   min-height: 150px;
+  margin-bottom: 15px;
 }
 
-#city {
-  width: 286px;
-  height: 46px;
+.input,
+.submit {
   border-radius: 4px;
-  border: solid 2.5px #ffffff;
-  background-color: inherit;
-  opacity: 0.73;
   font-family: Source Sans Pro;
+  display: inline-block;
+  padding: 10px 15px;
   font-size: 18px;
+  -webkit-appearance: none;
+}
+
+.input {
+  border: 1px solid lightgray;
+  opacity: 0.73;
   line-height: 1;
   letter-spacing: 0.4px;
   text-align: left;
-  color: #ffffff;
 }
 
-#button {
-  width: 140px;
-  height: 46px;
-  border-radius: 4px;
+.submit {
   background-color: #27b7c1;
-  font-family: Source Sans Pro;
-  font-size: 18px;
-  font-weight: 600;
-  line-height: 0.94;
+  border: 1px solid transparent;
+  font-weight: 400;
   letter-spacing: 0.5px;
   text-align: center;
   color: #ffffff;
 }
 
-@media (max-width: 860px) {
-  main {
-    background-image: url("https://content.codecademy.com/courses/intermediate-javascript-requests/wanderlust/background_photo_moble.jpg");
+.input:focus,
+.submit:focus {
+  outline: none;
+}
+
+@media (max-width: 326px) {
+  .input {
+    margin-bottom: 10px;
   }
+}
+
+@media (max-width: 860px) {
+  /*   main {
+    background-image: url("https://content.codecademy.com/courses/intermediate-javascript-requests/wanderlust/background_photo_moble.jpg");
+  } */
 
   h1 {
     padding-top: 80px;

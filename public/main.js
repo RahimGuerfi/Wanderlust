@@ -8,6 +8,7 @@ const openWeatherKey = "2b6d546ac75ba193d54e26e2c4d04d29";
 const weatherUrl = "https://api.openweathermap.org/data/2.5/weather";
 
 // Page Elements
+const limit = 10;
 const $input = $("#city");
 const $submit = $("#button");
 const $destination = $("#destination");
@@ -27,7 +28,7 @@ const weekDays = [
 // Add AJAX functions here:
 const getVenues = async () => {
   const city = $input.val();
-  const urlToFetch = `${url}${city}&limit=10&client_id=${clientId}&client_secret=${clientSecret}&v=20211212`;
+  const urlToFetch = `${url}${city}&limit=${limit}&client_id=${clientId}&client_secret=${clientSecret}&v=20211212`;
   try {
     const response = await fetch(urlToFetch);
     if (response.ok) {
@@ -58,14 +59,26 @@ const getForecast = async () => {
 
 // Render functions
 const renderVenues = (venues) => {
+  //random indexes array
+  const indxs = [];
   $venueDivs.forEach(($venue, index) => {
     // Add your code here:
-    const venue = venues[index];
+
+    //Generate index between 0 and limit
+    let rndIndx = Math.floor(Math.random() * limit);
+    //Check if index is unique in indxs
+    while (indxs.includes(rndIndx)) {
+      rndIndx = Math.floor(Math.random() * limit);
+    }
+    indxs.push(rndIndx);
+
+    const venue = venues[rndIndx];
     const venueIcon = venue.categories[0].icon;
     const venueImgSrc = `${venueIcon.prefix}bg_64${venueIcon.suffix}`;
     let venueContent = createVenueHTML(venue.name, venue.location, venueImgSrc);
     $venue.append(venueContent);
   });
+  console.log(indxs);
   $destination.append(`<h2>${venues[0].location.city}</h2>`);
 };
 
