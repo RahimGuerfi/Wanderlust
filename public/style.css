@@ -169,6 +169,11 @@ footer {
   letter-spacing: 0.5px;
   text-align: center;
   color: #ffffff;
+  cursor: pointer;
+}
+
+.submit:hover {
+  background-color: #1e8f97;
 }
 
 .input:focus,

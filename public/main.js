@@ -61,7 +61,7 @@ const getForecast = async () => {
 const renderVenues = (venues) => {
   //random indexes array
   const indxs = [];
-  $venueDivs.forEach(($venue, index) => {
+  $venueDivs.forEach(($venue) => {
     // Add your code here:
 
     //Generate index between 0 and limit
