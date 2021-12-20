@@ -13,6 +13,7 @@ main {
   background-image: url("background.webp");
   background-size: cover;
   text-align: center;
+  padding: 0 5px;
 }
 
 h1 {
@@ -24,6 +25,7 @@ h1 {
   text-align: center;
   color: #ffffff;
   margin: auto;
+  text-shadow: 0 2px 3px hsla(0, 0%, 0%, 0.75);
 }
 
 h3 {
@@ -80,6 +82,12 @@ footer {
   height: 150px;
   padding: 20px;
   box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.5);
+}
+
+.icon-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .weathericon {
