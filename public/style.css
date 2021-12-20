@@ -42,7 +42,7 @@ p {
   font-weight: 300;
   line-height: 1.36;
   text-align: left;
-  color: #4a4a4a;
+  color: #000;
   padding-left: 5px;
 }
 
@@ -74,7 +74,7 @@ footer {
   font-size: 18px;
   line-height: 0.78;
   text-align: left;
-  color: #4a4a4a;
+  color: #000;
 }
 
 .weather {
@@ -93,6 +93,11 @@ footer {
 .weathericon {
   width: 150px;
   height: 150px;
+}
+
+.venue,
+.weather {
+  background-color: rgba(211, 211, 211, 0.75);
 }
 
 .venue {
@@ -236,4 +241,19 @@ footer {
     margin: auto;
     text-align: center;
   }
+}
+
+#temp {
+  font-weight: bold;
+}
+
+#degC,
+#degF {
+  cursor: pointer;
+}
+
+#degC.selected,
+#degF.selected {
+  color: blue;
+  font-weight: bold;
 }

@@ -78,7 +78,6 @@ const renderVenues = (venues) => {
     let venueContent = createVenueHTML(venue.name, venue.location, venueImgSrc);
     $venue.append(venueContent);
   });
-  console.log(indxs);
   $destination.append(`<h2>${venues[0].location.city}</h2>`);
 };
 
@@ -103,3 +102,21 @@ const executeSearch = (e) => {
 };
 
 $submit.click(executeSearch);
+
+//Switch between between °C|°F
+$(document).on("click", "#degC", function (e) {
+  switchTemp(e);
+  $(this).addClass('selected');
+  $('#degF').removeClass('selected');
+});
+
+$(document).on("click", "#degF", function (e) {
+  switchTemp(e);
+  $(this).addClass('selected');
+  $('#degC').removeClass('selected');
+});
+
+const switchTemp = e => {
+  const value = e.target.getAttribute('data-value') + ' ';
+  $('#temp').text(value);
+}
