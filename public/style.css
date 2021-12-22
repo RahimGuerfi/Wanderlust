@@ -97,7 +97,7 @@ footer {
 
 .venue,
 .weather {
-  background-color: rgba(211, 211, 211, 0.75);
+  background-color: #fff;
 }
 
 .venue {
@@ -189,6 +189,10 @@ footer {
   background-color: #1e8f97;
 }
 
+.submit:disabled {
+  background-color: #a6a6a6;
+}
+
 .input:focus,
 .submit:focus {
   outline: none;
@@ -256,4 +260,17 @@ footer {
 #degF.selected {
   color: blue;
   font-weight: bold;
+}
+
+sup {
+  font-size: 17px;
+}
+
+.status {
+  text-align: center;
+  font-family: Montserrat;
+  font-size: 30px;
+  font-weight: 600;
+  letter-spacing: 0.9px;
+  color: #27b7c1;
 }

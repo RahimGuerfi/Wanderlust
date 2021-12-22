@@ -29,32 +29,27 @@ const weekDays = [
 const getVenues = async () => {
   const city = $input.val();
   const urlToFetch = `${url}${city}&limit=${limit}&client_id=${clientId}&client_secret=${clientSecret}&v=20211212`;
-  try {
-    const response = await fetch(urlToFetch);
-    if (response.ok) {
-      const jsonResponse = await response.json();
-      let venues = jsonResponse["response"].groups[0].items;
-      venues = venues.map((item) => item.venue);
-      return venues;
-    }
-    throw new Error("Request failed!");
-  } catch (e) {
-    console.log(e);
+
+  const response = await fetch(urlToFetch);
+  if (response.ok) {
+    const jsonResponse = await response.json();
+    let venues = jsonResponse["response"].groups[0].items;
+    venues = venues.map((item) => item.venue);
+    return venues;
   }
+  return false;
 };
+
 
 const getForecast = async () => {
   const urlToFetch = `${weatherUrl}?q=${$input.val()}&APPID=${openWeatherKey}`;
-  try {
-    const response = await fetch(urlToFetch);
-    if (response.ok) {
-      const jsonResponse = await response.json();
-      return jsonResponse;
-    }
-    throw new Error("Request failed!");
-  } catch (e) {
-    console.log(e);
+
+  const response = await fetch(urlToFetch);
+  if (response.ok) {
+    const jsonResponse = await response.json();
+    return jsonResponse;
   }
+  return false;
 };
 
 // Render functions
@@ -78,7 +73,7 @@ const renderVenues = (venues) => {
     let venueContent = createVenueHTML(venue.name, venue.location, venueImgSrc);
     $venue.append(venueContent);
   });
-  $destination.append(`<h2>${venues[0].location.city}</h2>`);
+  $destination.append(`<h2>${venues[0].location.city || $input.val()}</h2>`);
 };
 
 const renderForecast = (day) => {
@@ -87,19 +82,58 @@ const renderForecast = (day) => {
   $weatherDiv.append(weatherContent);
 };
 
-const executeSearch = (e) => {
+const executeSearch = async e => {
   e.preventDefault();
   if ($input.val().trim() !== "") {
-    $venueDivs.forEach((venue) => venue.empty());
-    $weatherDiv.empty();
-    $destination.empty();
-    $container.css("visibility", "visible");
-    getVenues().then((venues) => renderVenues(venues));
-    getForecast().then((forecast) => renderForecast(forecast));
+
+    beforeSubmit();
+    //Get data
+    const [weather, venues] = await Promise.all([getForecast(), getVenues()]);
+
+    if (weather && venues) {
+      afterSubmit();
+      //Show main container
+      $container.css("visibility", "visible");
+      //Show weather and venues
+      renderForecast(weather)
+      renderVenues(venues)
+    }
+    else {
+      afterSubmit();
+      //Hide main container
+      $container.css("visibility", "hidden");
+      //Show message
+      alert('No information found!');
+    }
+
   } else {
+    //Show message
     alert("Please type in a city first!");
   }
 };
+
+function beforeSubmit() {
+  //Disable submit button
+  $('#button').attr('disabled', true);
+  //Reset weather/venues containers
+  $venueDivs.forEach((venue) => venue.empty());
+  $weatherDiv.empty();
+  $destination.empty();
+  //Hide main container
+  $container.css("visibility", "hidden");
+  $('.status').text('Loading...')
+}
+
+function afterSubmit() {
+  //Enable submit button
+  $('#button').attr('disabled', false);
+  //Hide status message
+  $('.status').text('')
+  //Reset weather/venues containers
+  $venueDivs.forEach((venue) => venue.empty());
+  $weatherDiv.empty();
+  $destination.empty();
+}
 
 $submit.click(executeSearch);
 
