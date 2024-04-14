@@ -1,33 +1,41 @@
-# Codecademy Wanderlust Project
+# ✈️ WANDERLUST
 
-## Table of contents
+A website that allows users to check the current weather and discover top attractions in any city worldwide. By entering a city name, users can instantly view the weather conditions and explore popular attractions in the specified location.
 
-- [Project Goals](#project-goals)
-- [Built with](#built-with)
-- [How to use](#how-to-use)
-- [Challenges and Credits](#challenges-and-credits)
+## 🌍 Features
 
-## Project Goals
+- **City Weather**: Get real-time weather information for any city around the globe.
+- **Top Attractions**: Discover top attractions and landmarks in the selected city.
+- **Responsive Design**: The website is designed to work seamlessly across devices, including desktops, tablets, and smartphones.
 
-Using `fetch`, `async`, and `await`, you’ll request information from the [Foursquare API](https://developer.foursquare.com/) and [OpenWeather API](https://openweathermap.org/api) to create a travel website.
+## 🛠️ Technologies Used
 
-## Built with
+- **HTML**: Used for structuring the website's content.
+- **CSS**: Styles the website to enhance its visual appeal and user experience.
+- **JavaScript**: Powers the interactive features, such as fetching weather data and displaying attractions.
+- **OpenWeather API**: Integrated to retrieve current weather information based on city input.
+- **Foursquare API**: Utilized to fetch top attractions and points of interest for a given city.
 
-- HTML
-- CSS
-- JavaScript
-- Git, GitHub and GitHub Pages
+## 💻 Usage
 
-## How to use
+1. Visit the [Wanderlust website](https://rahimguerfi.github.io/Wanderlust/).
+2. Start typing the name of a city in the search bar.
+3. View the current weather conditions for the selected city, including temperature and weather description.
+4. Explore top attractions and popular landmarks in the city.
 
-1. Clone the repository and change directory.
+## 📄 License
 
-```
-git clone https://github.com/RahimGuerfi/Wanderlust.git
-```
+This project is licensed under the [MIT License](LICENSE).
 
-2. Open "Wanderlust/index.html" file.
+## 📢 Credits
 
-## Challenges and Credits
+This project was made possible thanks to the following contributors and resources:
 
-This was a practice project from the full stack program at Codeacademy.
+- **[Rahim Guerfi](https://github.com/RahimGuerfi)**: Lead developer and creator of the Wanderlust website.
+- **[OpenWeather API](https://openweathermap.org/api)**: Provides real-time weather data for cities worldwide.
+- **[Foursquare API](https://location.foursquare.com/developer/)**: Offers information about places and attractions.
+- **HTML5**, **CSS3**, and **JavaScript**: Essential technologies used for front-end development.
+
+## 📩 Contact
+
+For inquiries, please contact [abderrahim.guerfii@gmail.com](mailto:abderrahim.guerfii@gmail.com).
