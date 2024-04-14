@@ -32,6 +32,7 @@ This project is licensed under the [MIT License](LICENSE).
 This project was made possible thanks to the following contributors and resources:
 
 - **[Rahim Guerfi](https://github.com/RahimGuerfi)**: Lead developer and creator of the Wanderlust website.
+- **[Codecademy](https://www.codecademy.com/)**: This was a practice project from the Full-Stack program at Codeacademy.
 - **[OpenWeather API](https://openweathermap.org/api)**: Provides real-time weather data for cities worldwide.
 - **[Foursquare API](https://location.foursquare.com/developer/)**: Offers information about places and attractions.
 - **HTML5**, **CSS3**, and **JavaScript**: Essential technologies used for front-end development.
